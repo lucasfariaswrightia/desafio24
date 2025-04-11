@@ -1,0 +1,82 @@
+.navbar-container {
+    background-color: var(--secundary-color);
+    padding: 10px 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* === NAVBAR LEFT CONTENT === */
+.navbar-container>div:first-child {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+/* menu items */
+.navbar-container>div:first-child>ul {
+    display: flex;
+    gap: 28px;
+    font-weight: 500;
+}
+
+
+
+/* === NAVBAR RIGHT CONTENT === */
+.navbar-container>div:last-child {
+    display: flex;
+    gap: 24px;
+}
+
+/* notification circle */
+.inbox {
+    position: relative;
+}
+
+.inbox-notification {
+    height: 10px;
+    width: 10px;
+    background-color: #F8D07B;
+    border-radius: 10px;
+    position: absolute;
+    top: 5px;
+    right: 0;
+}
+
+/* profile */
+.profile-button {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.profile-image-wrapper {
+    position: relative;
+    width: 32px;
+    aspect-ratio: 1;
+    /* Mantém quadrado */
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.profile-image {
+    object-fit: cover;
+}
+/* text within profile button */
+.profile-button > div:last-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* username */
+.profile-button > div:last-child > span:first-child {
+    font-size: 14px;
+    font-weight: 700;
+}
+/* text below username */
+.profile-button > div:last-child > span:last-child {
+    font-size: 12px;
+    font-weight: 400;
+}

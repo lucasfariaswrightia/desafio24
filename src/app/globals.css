@@ -1,6 +1,6 @@
 @import "tailwindcss";
 /* ROBOTO FONT */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap'); */
 
 :root {
 
@@ -29,6 +29,32 @@ html {
 }
 
 body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     background-color: var(--background-color);
 }
 
+h1 {
+    font-size: var(--h1);
+}
+
+h2 {
+    font-size: var(--h2);
+}
+
+h3 {
+    font-size: var(--h3);
+}
+
+p {
+    font-size: var(--p);
+}
+
+span {
+    font-size: var(--span);
+}
+
+button {
+    cursor: pointer;
+}
