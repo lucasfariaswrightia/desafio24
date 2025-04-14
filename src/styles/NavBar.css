@@ -23,6 +23,23 @@
 
 
 
+/* smaller than desktop */
+@media (max-width: 992px) {
+
+    /* hide menu items */
+    .navbar-container>div:first-child>ul {
+        display: none;
+    }
+
+    /* hide nav options on the right */
+    .navbar-container>div:last-child>button:not(.menu-hamburguer) {
+        display: none;
+    }
+
+}
+
+
+
 /* === NAVBAR RIGHT CONTENT === */
 .navbar-container>div:last-child {
     display: flex;
@@ -63,20 +80,90 @@
 .profile-image {
     object-fit: cover;
 }
+
 /* text within profile button */
-.profile-button > div:last-child {
+.profile-button>div:last-child {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
 /* username */
-.profile-button > div:last-child > span:first-child {
+.profile-button>div:last-child>span:first-child {
     font-size: 14px;
     font-weight: 700;
 }
+
 /* text below username */
-.profile-button > div:last-child > span:last-child {
+.profile-button>div:last-child>span:last-child {
     font-size: 12px;
     font-weight: 400;
+}
+
+/* hamburguer menu */
+.menu-hamburguer {
+    display: none !important;
+}
+
+/* dropdown menu */
+.dropdown-menu {
+    position: absolute;
+    top: 65px;
+    right: 10px;
+    background-color: var(--secundary-color);
+    padding: 10px 0;
+    border-radius: 10px;
+    display: none;
+}
+
+/* dropdown list */
+.dropdown-menu > ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-width: 200px;
+    padding: 0 10px 10px 10px;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* dropdown items */
+.dropdown-menu > ul > li {
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.dropdown-menu > ul > li:hover {
+    background-color: var(--primary-color);
+}
+.dropdown-menu > ul > li > button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+} 
+
+/* profile image on dropdown menu */
+/* out div */
+.dropdown-menu > div { 
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+/* in divs */
+.dropdown-menu > div > div {
+    padding: 0 10px;
+}
+
+@media (max-width: 992px) {
+    /* show hamburguer menu */
+    .menu-hamburguer {
+        display: block !important;
+    }
+    /* show dropdown menu */
+    .dropdown-menu {
+        display: flex;
+        flex-direction: column;
+    }
 }
