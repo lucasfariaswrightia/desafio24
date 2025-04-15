@@ -7,7 +7,7 @@ import { LuSearch, LuInbox, LuSettings, LuMenu, LuX } from 'react-icons/lu'
 
 export default function NavBar() {
 
-    const [isMenuOpen, setIsMenuOpen] = useState(true)
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     return (
         <div className='navbar-container'>

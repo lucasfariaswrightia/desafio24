@@ -1,0 +1,84 @@
+main {
+    padding: 20px 0;
+}
+
+h1 {
+    font-weight: 300;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: auto;
+}
+
+/* content header - title, buttons, etc */
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* left part */
+.content-header>div:first-child {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+/* last part of left part */
+.content-header>div:first-child>div:last-child {
+    display: flex;
+    padding: 0 10px 5px 10px;
+    gap: 10px;
+    align-items: center;
+    color: var(--primary-color);
+}
+
+
+/* right part */
+.content-header>div:last-child {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Make buttons in right part responsive */
+.content-header>div:last-child button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 12px;
+    white-space: nowrap;
+}
+
+/* style the first two buttons */
+.content-header>div:last-child button:not(:last-child) {
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    color: var(--primary-color);
+    font-size: 13px;
+}
+
+/* customize last button */
+.content-header>div:last-child button:last-child {
+    background-color: #E5E7EB;
+    border-radius: 4px;
+    color: white;
+    font-size: 13px;
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+    .content-header {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .content-header>div:last-child {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+}

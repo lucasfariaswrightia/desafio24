@@ -1,6 +1,6 @@
 @import "tailwindcss";
 /* ROBOTO FONT */
-/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
 
@@ -13,14 +13,24 @@
     --dark: #212c46;
     --success: #7DCD85;
     --text: #141A29;
+    
 
     /* Fonts and Typography  */
     --font-family: "Roboto", sans-serif;
-    --h1: 32px;
-    --h2: 28px;
-    --h3: 20px;
+    --h1: 28px;
+    --h2: 20px;
+    --h3: 18px;
     --p: 16px;
     --span: 14px;
+
+    /* spacing */
+    --max-width: 72rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -29,9 +39,6 @@ html {
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
     background-color: var(--background-color);
 }
 
@@ -57,4 +64,14 @@ span {
 
 button {
     cursor: pointer;
+}
+
+button:disabled {
+    cursor: default;
+}
+
+/* additionals */
+
+.icon {
+    color: var(--primary-color)
 }
