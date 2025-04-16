@@ -24,7 +24,7 @@
     --span: 14px;
 
     /* spacing */
-    --max-width: 72rem;
+    --max-width: 74rem;
 }
 
 * {
@@ -74,4 +74,8 @@ button:disabled {
 
 .icon {
     color: var(--primary-color)
+}
+
+.icon-check {
+    color: var(--success)
 }
