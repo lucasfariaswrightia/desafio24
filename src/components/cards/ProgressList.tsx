@@ -1,19 +1,21 @@
 "use client"
 
 import { itemProps } from '@/types/ProgressListType'
-import React, { useState } from 'react'
+import React, { Dispatch, SetStateAction, useState } from 'react'
 import { LuCircleCheck } from 'react-icons/lu'
 
 interface props {
     items: itemProps[]
+    setItemSelected: (item: itemProps) => void
 }
 
-export default function ProgressList({ items }: props) {
+export default function ProgressList({ items, setItemSelected }: props) {
 
-    const [itemSelected, setItemSelected] = useState(0)
+    const [itemIndex, setItemIndex] = useState(0)
 
     function onPressItem(item: itemProps, index: number) {
-        setItemSelected(index)
+        setItemSelected(item)
+        setItemIndex(index)
     }
 
     return (
@@ -22,11 +24,12 @@ export default function ProgressList({ items }: props) {
             {items.map((i, index) => {
                 return (
                     <button
+                        key={index}
                         style={{
-                            color: itemSelected == index ? '#6057EE' : '',
-                            background: itemSelected == index ? '#ECF4F666' : '',
-                            borderLeftWidth: itemSelected == index ? 1 : 0,
-                            borderLeftColor: itemSelected == index ? '#6057EE' : ''
+                            color: itemIndex == index ? '#6057EE' : '',
+                            background: itemIndex == index ? '#ECF4F666' : '',
+                            borderLeftWidth: itemIndex == index ? 1 : 0,
+                            borderLeftColor: itemIndex == index ? '#6057EE' : ''
                         }}
                         onClick={() => onPressItem(i, index)}
                     >

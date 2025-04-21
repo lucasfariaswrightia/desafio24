@@ -3,15 +3,22 @@
 import ProgressList from '@/components/cards/ProgressList'
 import Divider from '@/components/global/Divider'
 import '@/styles/Home.css'
-import { useState } from "react"
+import { useCallback, useState } from "react"
 import { LuArrowLeft, LuCheck, LuPencil, LuSave } from 'react-icons/lu'
 import { progressListItems as li } from '@/utils/ProgressListItems'
+import { itemProps } from '@/types/ProgressListType'
+import RenderItemContent from '@/components/cards/RenderItemContent'
 
 
 
 export default function Home() {
 
-  const [listItems, setListItems] = useState(li)
+  const [listItems, setListItems] = useState<itemProps[]>(li)
+  const [itemContent, setItemContent] = useState<itemProps>(li[0])
+
+  const handleSelectItem = useCallback((item: itemProps) => {
+    setItemContent(item)
+  }, [])
 
   return (
     <main>
@@ -59,18 +66,16 @@ export default function Home() {
           <aside>
             <ProgressList
               items={listItems}
+              setItemSelected={handleSelectItem}
             />
           </aside>
 
-          <div>
-            <h2>Conteúdo Principal</h2>
-            <p>Este é o conteúdo principal da página que ficará ao lado do card fixo.</p>
-
-            {/* Conteúdo para testar o scroll */}
-            {Array(60).fill("").map((_, index) => (
-              <p key={index}>Linha de conteúdo {index + 1} para testar o scroll</p>
-            ))}
-          </div>
+          {itemContent &&
+            <RenderItemContent
+              item={itemContent}
+              index={listItems.findIndex(i => i === itemContent)}
+            />
+          }
         </div>
       </div>
     </main>

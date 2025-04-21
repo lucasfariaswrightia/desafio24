@@ -115,11 +115,10 @@ main {
     padding: 24px;
     display: flex;
     flex-direction: column;
-
 }
 
 /* conteúdo principal ao lado do card */
-.main-content > div:last-child {
+.rendered-content {
     flex: 1; /* Faz o conteúdo principal ocupar o espaço restante */
 }
 
@@ -132,10 +131,63 @@ main {
     align-items: center;
     padding: 0 10px;
 
-    & span {
+    span {
         font-size: 14px;
         font-weight: 400;
     }
+}
+
+
+/* item content where the values will be shown */
+.rendered-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    h2 {
+        font-weight: 300;
+    }
+
+    /* card for render the content */
+    .card {
+        background-color: white;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        border-radius: 6px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+
+        h3 {
+            font-weight: 400;
+            color: var(--gray-text);
+        }
+
+    }
+}
+
+/* item content header */
+.rendered-content > div:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* top buttons to previous and next */
+.rendered-content > div > div {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* especific button from the style above */
+.rendered-content > div > div > button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-text);
 }
 
 /* responsividade para o layout principal */

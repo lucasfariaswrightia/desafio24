@@ -13,13 +13,14 @@
     --dark: #212c46;
     --success: #7DCD85;
     --text: #141A29;
+    --gray-text: #686C73;
     
 
     /* Fonts and Typography  */
     --font-family: "Roboto", sans-serif;
     --h1: 28px;
-    --h2: 20px;
-    --h3: 18px;
+    --h2: 28px;
+    --h3: 20px;
     --p: 16px;
     --span: 14px;
 
