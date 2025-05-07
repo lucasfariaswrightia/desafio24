@@ -92,18 +92,18 @@ main {
     flex-direction: row;
     gap: 30px;
     padding-top: 30px;
-    min-height: 100vh; 
+    min-height: 100vh;
 }
 
 /* aside */
 .main-content aside {
     position: sticky;
-    top: 20px; 
+    top: 20px;
     align-self: flex-start;
     width: 300px;
     flex-shrink: 0;
-    max-height: calc(100vh - 40px); 
-    overflow-y: auto; 
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 6px;
 }
@@ -119,11 +119,12 @@ main {
 
 /* conteúdo principal ao lado do card */
 .rendered-content {
-    flex: 1; /* Faz o conteúdo principal ocupar o espaço restante */
+    flex: 1;
+    /* Faz o conteúdo principal ocupar o espaço restante */
 }
 
 /* List Item */
-.progress-list-card > button {
+.progress-list-card>button {
     display: flex;
     height: 46px;
     width: 100%;
@@ -163,25 +164,34 @@ main {
             color: var(--gray-text);
         }
 
+        .custom-select-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 157px;
+            height: 40px;
+
+          
+        }
+
     }
 }
 
 /* item content header */
-.rendered-content > div:first-child {
+.rendered-content>div:first-child {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 /* top buttons to previous and next */
-.rendered-content > div > div {
+.rendered-content>div>div {
     display: flex;
     align-items: center;
     gap: 16px;
 }
 
 /* especific button from the style above */
-.rendered-content > div > div > button {
+.rendered-content>div>div>button {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -195,10 +205,11 @@ main {
     .main-content {
         flex-direction: column;
     }
-    
+
     .main-content aside {
         width: 100%;
-        position: relative; /* Desativa o sticky em telas pequenas */
+        position: relative;
+        /* Desativa o sticky em telas pequenas */
         top: 0;
         margin-bottom: 20px;
     }

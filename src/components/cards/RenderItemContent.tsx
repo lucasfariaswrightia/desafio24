@@ -68,9 +68,13 @@ export default React.memo(function RenderItemContent({ item, index }: props) {
 
                 <span>Adicionar tipo de taxa</span>
 
-                <select name="" id="">
-                    
-                </select>
+                <div className="custom-select-wrapper">
+                    <select name="tipo_de_taxa" id="tipo_de_taxa">
+                        <option value="opcao1">Selecionar</option>
+                        <option value="opcao2">Opção 2</option>
+                        <option value="opcao3">Opção 3</option>
+                    </select>
+                </div>
 
             </div>
 
