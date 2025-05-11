@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Roboto } from "next/font/google"
 import "./globals.css"
 import NavBar from "@/components/global/NavBar"
+import { SelectedItemsProvider } from "@/contexts/ItemsContext"
 
 
 const robotoSans = Roboto({
@@ -26,7 +27,9 @@ export default function RootLayout({
         className={`${robotoSans.variable} antialiased`}
       >
         <NavBar />
-        {children}
+        <SelectedItemsProvider>
+          {children}
+        </SelectedItemsProvider>
       </body>
     </html>
   )

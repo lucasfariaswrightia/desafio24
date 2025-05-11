@@ -1,9 +1,11 @@
 "use client"
 
-import { itemProps } from '@/types/ProgressListType'
-import React, { useState } from 'react'
-import { LuPlus, LuTrash } from 'react-icons/lu'
+import React from 'react'
 import '@/styles/Table.css'
+import { itemProps } from '@/types/ProgressListType'
+import { LuPlus, LuTrash } from 'react-icons/lu'
+import { useSelectedItems } from '@/contexts/ItemsContext'
+import SelectedItemsBottomSheet from '../global/BottomSheet'
 
 interface props {
   item: itemProps
@@ -13,55 +15,29 @@ interface props {
 export default function RenderItemTable({ item, setItem }: props) {
   const { taxa } = item
   
-  // State to track selected rows
-  const [selectedRows, setSelectedRows] = useState<number[]>([])
-  const [selectAll, setSelectAll] = useState(false)
+  const { 
+    selectedItems, 
+    selectAll, 
+    handleRowSelect, 
+    handleSelectAll,
+    handleClearSelection
+  } = useSelectedItems()
 
   // Remove uma taxa do array por índice
   const handleRemoveTaxa = (index: number) => {
     const novasTaxas = taxa.taxas.filter((_, i) => i !== index)
     setItem(novasTaxas, 'taxas')
-    // Also remove from selected rows
-    setSelectedRows(selectedRows.filter(rowIndex => rowIndex !== index))
   }
 
-  // Handle individual row selection
-  const handleRowSelect = (index: number) => {
-    if (selectedRows.includes(index)) {
-      setSelectedRows(selectedRows.filter(rowIndex => rowIndex !== index))
-      setSelectAll(false)
-    } else {
-      setSelectedRows([...selectedRows, index])
-      // Check if all rows are now selected
-      if (selectedRows.length + 1 === taxa.taxas.length) {
-        setSelectAll(true)
-      }
-    }
-  }
-
-  // Handle select all rows
-  const handleSelectAll = () => {
-    if (selectAll) {
-      setSelectedRows([])
-    } else {
-      setSelectedRows([...Array(taxa.taxas.length).keys()])
-    }
-    setSelectAll(!selectAll)
-  }
-
-  // Remove all selected rows
-  const handleRemoveSelected = () => {
-    if (selectedRows.length === 0) return
-    
-    const novasTaxas = taxa.taxas.filter((_, index) => !selectedRows.includes(index))
+  // Handle removing all selected items
+  const handleRemoveSelectedTaxas = () => {
+    const novasTaxas = taxa.taxas.filter((_, index) => !selectedItems.includes(index))
     setItem(novasTaxas, 'taxas')
-    setSelectedRows([])
-    setSelectAll(false)
+    handleClearSelection()
   }
 
   return (
     <div className='taxa'>
-
       <h3>Taxa *</h3>
 
       {/* HEADER */}
@@ -80,12 +56,11 @@ export default function RenderItemTable({ item, setItem }: props) {
           </label>
         </div>
 
-        {/* Buttons */}
-          
-          <button className='add-taxa'>
-            <LuPlus size={15} />
-            <span>Adicionar Taxa</span>
-          </button>
+        {/* Add button */}
+        <button className='add-taxa'>
+          <LuPlus size={15} />
+          <span>Adicionar Taxa</span>
+        </button>
       </div>
 
       {/* TABELA */}
@@ -97,7 +72,7 @@ export default function RenderItemTable({ item, setItem }: props) {
                 <input 
                   type="checkbox" 
                   checked={selectAll && taxa.taxas.length > 0}
-                  onChange={handleSelectAll}
+                  onChange={() => handleSelectAll(taxa.taxas.length)}
                   disabled={taxa.taxas.length === 0}
                 />
                 <span className="checkmark"></span>
@@ -107,6 +82,7 @@ export default function RenderItemTable({ item, setItem }: props) {
             <th>NUTS III</th>
             <th>Concelho</th>
             <th>Taxa</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -118,13 +94,13 @@ export default function RenderItemTable({ item, setItem }: props) {
             taxa.taxas.map((taxaItem, index) => (
               <tr 
                 key={index}
-                className={selectedRows.includes(index) ? 'selected' : ''}
+                className={selectedItems.includes(index) ? 'selected' : ''}
               >
                 <td className="checkbox-cell">
                   <label className="checkbox-container">
                     <input 
                       type="checkbox" 
-                      checked={selectedRows.includes(index)}
+                      checked={selectedItems.includes(index)}
                       onChange={() => handleRowSelect(index)}
                     />
                     <span className="checkmark"></span>
@@ -163,6 +139,11 @@ export default function RenderItemTable({ item, setItem }: props) {
         </div>
       </div>
 
+      {/* Bottom sheet for selected items */}
+      <SelectedItemsBottomSheet
+        onDelete={handleRemoveSelectedTaxas}
+        itemLabel="taxa"
+      />
     </div>
   )
 }

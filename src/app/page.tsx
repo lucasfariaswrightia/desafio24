@@ -3,6 +3,7 @@
 import ProgressList from '@/components/cards/ProgressList'
 import Divider from '@/components/global/Divider'
 import '@/styles/Home.css'
+import '@/styles/BottomSheet.css'
 import { useCallback, useState } from "react"
 import { LuArrowLeft, LuCheck, LuPencil, LuSave } from 'react-icons/lu'
 import { progressListItems as li } from '@/utils/ProgressListItems'
