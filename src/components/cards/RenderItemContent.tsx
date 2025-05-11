@@ -3,13 +3,17 @@
 import React from 'react'
 import { itemProps } from '@/types/ProgressListType'
 import { LuChevronLeft, LuChevronRight } from 'react-icons/lu'
+import CustomSelect from '../ui/CustomSelect'
+import RenderItemTable from './RenderItemTable'
 
 interface props {
     item: itemProps
     index: any
+    setItem: (item: itemProps) => void
 }
 
-export default React.memo(function RenderItemContent({ item, index }: props) {
+export default React.memo(function RenderItemContent({ item, index, setItem }: props) {
+
     return (
         <div className='rendered-content'>
 
@@ -62,21 +66,61 @@ export default React.memo(function RenderItemContent({ item, index }: props) {
 
             <p className='text-[var(--primary-color)]' style={{ fontSize: 14 }}>* Campos de preenchimento obrigatório</p>
 
-            <div className="card">
+            {/* TIPO DE TAXA */}
+            <section className="card">
 
                 <h3>Tipo de taxa</h3>
 
                 <span>Adicionar tipo de taxa</span>
 
-                <div className="custom-select-wrapper">
-                    <select name="tipo_de_taxa" id="tipo_de_taxa">
-                        <option value="opcao1">Selecionar</option>
-                        <option value="opcao2">Opção 2</option>
-                        <option value="opcao3">Opção 3</option>
-                    </select>
+                <CustomSelect
+                    itens={['Mensal', 'Anual']}
+                    value={item.tipoDeTaxa}
+                    onChange={(newValue) => setItem({ ...item, tipoDeTaxa: newValue })}
+                    />
+
+            </section>
+
+            {/* CONTAR */}
+            <section className='card'>
+
+                <h3>Contar *</h3>
+
+                <div className='d-flex radio-group'>
+                    <label className="radio-label">
+                        <input
+                            name='contar'
+                            type='radio'
+                            className='radio-button'
+                            checked={item.contar === true}
+                            onChange={() => setItem({ ...item, contar: true })}
+                            />
+                        <span className="custom-radio" /> Sim
+                    </label>
+
+                    <label className="radio-label">
+                        <input
+                            name='contar'
+                            type='radio'
+                            className='radio-button'
+                            checked={item.contar === false}
+                            onChange={() => setItem({ ...item, contar: false })}
+                            />
+                        <span className="custom-radio" /> Não
+                    </label>
                 </div>
 
-            </div>
+            </section>
+            
+            {/* TABELA DA TAXA */}
+            <section className='card'>
+                <RenderItemTable
+                    item={item}
+                    setItem={(value: any, field: keyof itemProps['taxa']) => setItem({ ...item, taxa: { 
+                        ...item.taxa, [field]: value
+                    }})}
+                />
+            </section>
 
         </div>
     )

@@ -20,6 +20,13 @@ export default function Home() {
     setItemContent(item)
   }, [])
 
+  const handleUpdateItem = useCallback((item:itemProps) => {
+    setListItems(prev =>
+      prev.map(i => i.id === item.id ? item : i)
+    )
+    setItemContent(item)
+  }, [])
+
   return (
     <main>
       {/* CONTENT HEADER */}
@@ -73,7 +80,8 @@ export default function Home() {
           {itemContent &&
             <RenderItemContent
               item={itemContent}
-              index={listItems.findIndex(i => i === itemContent)}
+              index={listItems.findIndex(i => i.id === itemContent.id)}
+              setItem={(updatedItem) => handleUpdateItem(updatedItem)}
             />
           }
         </div>

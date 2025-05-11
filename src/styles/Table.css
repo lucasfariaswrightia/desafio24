@@ -1,0 +1,162 @@
+.taxa-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.taxa-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 7px; /* Increased gap between rows to 15px */
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.taxa-table thead tr {
+    background-color: white;
+    text-align: left;
+    font-weight: 600;
+}
+
+.taxa-table tbody tr {
+    background-color: #fbfbff;
+    box-shadow: 0 0 0 1px #ccc;  /* Creates a 1px border effect */
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.taxa-table th,
+.taxa-table td {  
+    padding: 12px 16px;
+    font-weight: normal;
+    border: none; /* Remove default borders */
+}
+
+/* Apply border radius to first and last cells in each row */
+table.taxa-table tbody tr td:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.taxa-table tbody tr td:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    text-align: center;
+}
+
+.taxa-table tbody tr:hover {
+    background-color: #f0f0ff;
+    box-shadow: 0 0 0 1px var(--primary-color);
+}
+
+/* Selected row styling */
+.taxa-table tbody tr.selected {
+    background-color: #eef1ff;
+    box-shadow: 0 0 0 1px var(--primary-color);
+}
+
+.taxa-table button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    transition: color 0.2s ease;
+}
+
+.taxa-table button:hover {
+    color: var(--secondary-color);
+}
+
+/* Custom checkbox styling */
+.checkbox-cell {
+    width: 40px;
+    text-align: center !important;
+}
+
+/* Checkbox container */
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    user-select: none;
+    height: 20px;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+/* On mouse-over */
+.checkbox-container:hover input ~ .checkmark {
+    border-color: var(--primary-color);
+}
+
+/* When the checkbox is checked */
+.checkbox-container input:checked ~ .checkmark {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+    left: 8px;
+    top: 6px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Remove selected button */
+.remove-selected:hover {
+    background-color: rgba(211, 47, 47, 0.05) !important;
+}
+
+/* button */
+.add-taxa {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 12px;
+    white-space: nowrap;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    color: var(--primary-color);
+    font-size: 13px;
+}
