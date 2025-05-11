@@ -1,3 +1,10 @@
+.taxa-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 1px;
+}
+
 .taxa-header {
     display: flex;
     flex-direction: row;

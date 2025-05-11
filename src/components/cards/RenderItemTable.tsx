@@ -64,62 +64,64 @@ export default function RenderItemTable({ item, setItem }: props) {
       </div>
 
       {/* TABELA */}
-      <table className="taxa-table">
-        <thead>
-          <tr>
-            <th className="checkbox-cell">
-              <label className="checkbox-container">
-                <input 
-                  type="checkbox" 
-                  checked={selectAll && taxa.taxas.length > 0}
-                  onChange={() => handleSelectAll(taxa.taxas.length)}
-                  disabled={taxa.taxas.length === 0}
-                />
-                <span className="checkmark"></span>
-              </label>
-            </th>
-            <th>NUTS II</th>
-            <th>NUTS III</th>
-            <th>Concelho</th>
-            <th>Taxa</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          {taxa.taxas.length === 0 ? (
+      <div className='taxa-table-wrapper'>
+        <table className="taxa-table">
+          <thead>
             <tr>
-              <td colSpan={6} style={{ textAlign: 'center', padding: '1rem' }}>Nenhuma taxa adicionada.</td>
+              <th className="checkbox-cell">
+                <label className="checkbox-container">
+                  <input
+                    type="checkbox"
+                    checked={selectAll && taxa.taxas.length > 0}
+                    onChange={() => handleSelectAll(taxa.taxas.length)}
+                    disabled={taxa.taxas.length === 0}
+                  />
+                  <span className="checkmark"></span>
+                </label>
+              </th>
+              <th>NUTS II</th>
+              <th>NUTS III</th>
+              <th>Concelho</th>
+              <th>Taxa</th>
+              <th>Ações</th>
             </tr>
-          ) : (
-            taxa.taxas.map((taxaItem, index) => (
-              <tr 
-                key={index}
-                className={selectedItems.includes(index) ? 'selected' : ''}
-              >
-                <td className="checkbox-cell">
-                  <label className="checkbox-container">
-                    <input 
-                      type="checkbox" 
-                      checked={selectedItems.includes(index)}
-                      onChange={() => handleRowSelect(index)}
-                    />
-                    <span className="checkmark"></span>
-                  </label>
-                </td>
-                <td>{taxaItem.NUTS2}</td>
-                <td>{taxaItem.NUTS3}</td>
-                <td>{taxaItem.concelho}</td>
-                <td>{taxaItem.taxa} %</td>
-                <td>
-                  <button onClick={() => handleRemoveTaxa(index)}>
-                    <LuTrash size={18} />
-                  </button>
-                </td>
+          </thead>
+          <tbody>
+            {taxa.taxas.length === 0 ? (
+              <tr>
+                <td colSpan={6} style={{ textAlign: 'center', padding: '1rem' }}>Nenhuma taxa adicionada.</td>
               </tr>
-            ))
-          )}
-        </tbody>
-      </table>
+            ) : (
+              taxa.taxas.map((taxaItem, index) => (
+                <tr
+                  key={index}
+                  className={selectedItems.includes(index) ? 'selected' : ''}
+                >
+                  <td className="checkbox-cell">
+                    <label className="checkbox-container">
+                      <input
+                        type="checkbox"
+                        checked={selectedItems.includes(index)}
+                        onChange={() => handleRowSelect(index)}
+                      />
+                      <span className="checkmark"></span>
+                    </label>
+                  </td>
+                  <td>{taxaItem.NUTS2}</td>
+                  <td>{taxaItem.NUTS3}</td>
+                  <td>{taxaItem.concelho}</td>
+                  <td>{taxaItem.taxa} %</td>
+                  <td>
+                    <button onClick={() => handleRemoveTaxa(index)}>
+                      <LuTrash size={18} />
+                    </button>
+                  </td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
+      </div>
 
       {/* PAGINAÇÃO SIMPLES */}
       <div style={{
