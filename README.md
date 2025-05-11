@@ -36,9 +36,9 @@ http://localhost:3000
 ## Tecnologias e bibliotecas utilizadas
 
 - [React](https://reactjs.org/)
-- [Next.js](https://nextjs.org/) (se aplicável)
+- [Next.js](https://nextjs.org/) 
 - [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/) (ou outro framework de UI)
+- [Tailwind CSS](https://tailwindcss.com/) 
 - [React Icons](https://react-icons.github.io/react-icons/)
 - Context API para gerenciamento de estado
 
