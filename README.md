@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# DESAFIO 24
 
-First, run the development server:
+Este é um desafio de frontend onde eu, Lucas Farias, tive que recriar um design feito em Figma. O desafio foi muito interessante, pois consegui mostrar minhas skills como frontend developer e seguir a risca o que foi pedido.
+
+## Como executar
+
+### Pré-requisitos
+
+- Node.js 
+- npm ou yarn
+
+### Passos
 
 ```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/seu-projeto.git
+
+# Acesse a pasta do projeto
+cd seu-projeto
+
+# Instale as dependências
+npm install
+# ou
+yarn
+
+# Execute o projeto
 npm run dev
-# or
+# ou
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Acesse no navegador
+http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tecnologias e bibliotecas utilizadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [React](https://reactjs.org/)
+- [Next.js](https://nextjs.org/) (se aplicável)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/) (ou outro framework de UI)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- Context API para gerenciamento de estado
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Estrutura de Pastas
 
-## Learn More
+```
+src/
+├── components/        # Componentes reutilizáveis
+├── contexts/          # Context API (gerenciamento de estado)
+├── app/               # Páginas (Next.js)
+├── styles/            # Estilos globais e por componente
+├── types/             # Tipagens TypeScript
+├── utils/             # Variáveis simuladas
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Funcionalidades
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Preenchimento de formulário
+- Manipulação de tabelas
+- Selecionar múltiplas taxas para remoção
+- Responsividade para mobile
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Licença
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Este projeto está sob a licença MIT.
