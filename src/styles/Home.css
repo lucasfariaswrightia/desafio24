@@ -94,34 +94,10 @@ main {
     border-radius: 6px;
 }
 
-/* card for progress items */
-.progress-list-card {
-    background-color: white;
-    border-radius: 6px;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-}
-
 /* conteúdo principal ao lado do card */
 .rendered-content {
     flex: 1;
     /* Faz o conteúdo principal ocupar o espaço restante */
-}
-
-/* List Item */
-.progress-list-card>button {
-    display: flex;
-    height: 46px;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10px;
-
-    span {
-        font-size: 14px;
-        font-weight: 400;
-    }
 }
 
 
