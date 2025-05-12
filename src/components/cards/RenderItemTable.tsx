@@ -4,6 +4,7 @@ import React from 'react'
 import '@/styles/Table.css'
 import { itemProps } from '@/types/ProgressListType'
 import { LuPlus, LuTrash } from 'react-icons/lu'
+import { FaAnglesLeft, FaAnglesRight, FaChevronLeft, FaChevronRight } from 'react-icons/fa6'
 import { useSelectedItems } from '@/contexts/ItemsContext'
 import SelectedItemsBottomSheet from '../global/BottomSheet'
 
@@ -129,16 +130,45 @@ export default function RenderItemTable({ item, setItem }: props) {
         justifyContent: 'space-between',
         alignItems: 'center',
         marginTop: '1rem',
-        fontSize: '14px'
+        fontSize: '14px',
       }}>
-        <span>1 de 1 página ({taxa.taxas.length} itens)</span>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-          <select style={{ padding: '2px 5px' }}>
-            <option value="10">10</option>
-            <option value="20">20</option>
-          </select>
-          <span>itens por página</span>
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 10,
+        }}>
+          <span>1 de 1 página ({taxa.taxas.length} itens)</span>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+            <select style={{ padding: '2px 5px' }} className='text-[var(--primary-color)]'>
+              <option value="10">10</option>
+              <option value="20">20</option>
+            </select>
+            <span>itens por página</span>
+          </div>
         </div>
+
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 5,
+          fontWeight: "bold"
+        }}
+        className='text-[var(--primary-color)]'
+        >
+          <span>{`<<`}</span>
+          <span>{`<`}</span>
+          <div style={{ padding: 5, backgroundColor: "var(--light-secondary-color)", borderRadius: 100, height: 30, width: 30, textAlign: "center" }}>
+            1
+          </div>
+          <div style={{ padding: 5, borderRadius: 100, height: 30, width: 30, textAlign: "center", color: "grey" }}>
+            2
+          </div>
+          <span>{`>`}</span>
+          <span>{`>>`}</span>
+
+        </div>
+
       </div>
 
       {/* Bottom sheet for selected items */}
